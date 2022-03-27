@@ -1,0 +1,3 @@
+C:/Users/12001732/Documents/cprogrameren1/network programming/honeynetserver/cmake-build-debug/CMakeFiles/honeynetserver.dir
+C:/Users/12001732/Documents/cprogrameren1/network programming/honeynetserver/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/12001732/Documents/cprogrameren1/network programming/honeynetserver/cmake-build-debug/CMakeFiles/rebuild_cache.dir
