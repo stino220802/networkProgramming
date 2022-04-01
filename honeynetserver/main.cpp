@@ -63,7 +63,7 @@ void pub(){
     }
     catch( zmq::error_t & ex )
     {
-        std::cerr << "Caught an exception : " << ex.what();
+        std::cerr << "Caught a exception : " << ex.what();
     }
 
 }
