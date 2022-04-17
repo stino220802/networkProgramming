@@ -21,21 +21,9 @@ void pub();
 [[noreturn]] void sub();
 int main()
 {
-    std::thread t2(sub);
-    std::thread t3(pub);
-    std::thread t4(pub);
-    std::thread t5(pub);
-    std::thread t6(pub);
-    std::thread t7(pub);
-    std::thread t8(pub);
+    std::thread t2(sub); 
     std::thread t1(pub);
     t1.join();
-    t3.join();
-    t4.join();
-    t5.join();
-    t6.join();
-    t7.join();
-    t8.join();
     t2.join();
     return 0;
 }
