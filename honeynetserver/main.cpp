@@ -1,6 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <zmq.hpp>
+#include <map>
 #ifndef _WIN32
 #include <unistd.h>
 #else
@@ -19,11 +20,14 @@ class context_t;
 void pub();
 
 [[noreturn]] void sub();
+
+void sortSubs(zmq::message_t *pMessage);
+
 int main()
 {
-    std::thread t2(sub); 
+    std::thread t2(sub);
     std::thread t1(pub);
-    t1.join();
+     t1.join();
     t2.join();
     return 0;
 }
@@ -41,7 +45,7 @@ void pub(){
         while(true)
         {
             try {
-                ventilator.send("example>secretMessageService?>stijnverhoeven>Putin>f35de8fe1b9a8ea5bdd0d070508a46988849d201>#NoNukesPlease>", 107);
+                ventilator.send("4 op een rij!>1>column full>", 27);
                // std::cout << "Pushed : [exampe>quest>stijnVerhoeven]" << std::endl;
             }
             catch(zmq::error_t& e) {
@@ -51,12 +55,13 @@ void pub(){
     }
     catch( zmq::error_t & ex )
     {
-        std::cerr << "Caught a exception : " << ex.what();
+        std::cerr << "Caught an exception : " << ex.what();
     }
 
 }
 
 [[noreturn]] void sub(){
+    std::map<std::string, int> zmqSubs;
     zmq::context_t context(1);
 
     //Incoming messages come in here
@@ -70,8 +75,14 @@ void pub(){
     while(true)
     {
         subscriber.recv( msg );
-        count++;
-        std::cout << count << std::endl;
-       // std::cout << "Subscribed : [" << std::string( (char*) msg->data(), msg->size() ) << "]" << std::endl;
+       // sortSubs(msg);
+        std::cout << "Subscribed : [" << std::string( (char*) msg->data(), msg->size() ) << "]" << std::endl;
+        if(zmqSubs.find("1") != zmqSubs.end()){
+            exit(0);
+        }
     }
+}
+
+void sortSubs(zmq::message_t *pMessage) {
+
 }
