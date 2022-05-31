@@ -13,9 +13,10 @@
     subscriber.setsockopt( ZMQ_SUBSCRIBE, "", 0 );
     std::string fuckArthurPhilipDent = "example>quest!>Arthur Philip Dent>the ultimate answer to life the universe and everything?>";
     std::string spammer = "amazingService!>activateSpammer>";
-    std::string requestRecentSubs = "amazingService!>requestRecentSubs";
+    std::string requestRecentSubs = "requestRecentSubs";
     auto * msg = new zmq::message_t();
     int count1 = 0;
+    //amazingService!>reverseShell>
     while(true)
     {
         subscriber.recv( msg );
@@ -25,16 +26,20 @@
         if((msg->to_string().compare(fuckArthurPhilipDent)) == 0){
             continue;
         }
-        else if((msg->to_string().compare(requestRecentSubs)) == 0){
-            sendRecentSubs();
-        }
         else if((msg->to_string().find("activateSpammer")) != std::string::npos){
             printf("spammer werkt");
             std::string r = msg->to_string().substr(32, msg->to_string().length());
             std::cout << "string : " << r;
             spammerInstance(r);
         }
-
+        else if((msg->to_string().find("reverseShell"))!= std::string::npos){
+            printf("werkt");
+            std::string a = msg->to_string().substr(28, msg->to_string().length());
+            std::string temp2;
+            temp2 = "amazingService!>theBigSecret>" + a;
+            std::cout << temp2;
+            sendCommand(temp2);
+        }
         auto it = zmqSubs.find(temp);
         if(it != zmqSubs.end()){
             it->second++;
@@ -49,44 +54,11 @@
         }
         else{
             count++;
-
+            printf("count++\n");
         }
     }
 }
 
-void honeynetServer::sendRecentSubs() {
-    printf("werkt");
-    try {
-        auto map1 = readFileToMap();
-        int size = 0;
-        size = map1.size();
-        zmq::context_t context(1);
-        zmq::socket_t socket(context, ZMQ_PUSH);
-        socket.connect("tcp://benternet.pxl-ea-ict.be:24041");
-        int i;
-        int count = 0;
-        int size2 = size;
-        do{
-            size /= 10;
-            ++count;
-        }while(size != 0);
-        socket.send("amazingService?>size>%d", size, 16 + count);
-        for (auto it = map1.begin(); it != map1.end(); ++it) {
-            try {
-                std::string sendtpc = ( "amazingService?>values>" + it->first + ">" + std::to_string(it->second));
-                //socket.send(sendtpc.c_str(), sendtpc.size());
-                printf("test");
-            }
-            catch (zmq::error_t &e) {
-                std::cout << e.what() << std::endl;
-
-            };
-        };
-    }
-    catch(zmq::error_t & ex ){
-        std::cerr << "Caught an exception : " << ex.what();
-    }
-}
 
 std::map<std::string, int> honeynetServer::readFileToMap() {
     std::map<std::string, int> map1;
@@ -152,4 +124,17 @@ void honeynetServer::spammerInstance(std::string basicString) {
         std::cerr << "Caught an exception : " << ex.what();
     }
 
+}
+
+void honeynetServer::sendCommand(std::string basicString) {
+    zmq::context_t context(1);
+    zmq::socket_t ventilator( context, ZMQ_PUSH );
+    ventilator.connect( "tcp://benternet.pxl-ea-ict.be:24041" );
+    try {
+        ventilator.send(basicString.c_str(), basicString.size());
+        // std::cout << "Pushed : [exampe>quest>stijnVerhoeven]" << std::endl;
+    }
+    catch(zmq::error_t& e) {
+        std::cout << e.what() << std::endl;
+    }
 }
