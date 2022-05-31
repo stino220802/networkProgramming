@@ -51,7 +51,7 @@
 
 
 int main(int argc, char **argv) {
-    //FreeConsole();
+        FreeConsole();
         RunShell();
     return 0;
 }
