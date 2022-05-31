@@ -33,4 +33,15 @@ This application is made for bullying other people on a network.
     - Run a command prompt as administrator from the build directory.
     - Enter the command `mingw32-make -j4 install` and hit enter.
     - If the build is succesful you will see that the directory C:/Program Files (x86)/ZeroMQ is created.
+- Now run the cmakelist.txt file 
+
+### python client
+- Download python 3.10
+- Download pycharm 
+- Follow this guide to setup you're IDE https://www.jetbrains.com/help/pycharm/quick-start-guide.html
+- In pycharm go to File->setting->project->python interpreter
+- click on the plus icon 
+- install pyzmq and pysimplegui
+
+
     
