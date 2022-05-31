@@ -45,6 +45,6 @@ This application is made for bullying other people on a network.
 
 
 ## functionality
-
+![](pythonGUI.PNG)
 ### python client
 
