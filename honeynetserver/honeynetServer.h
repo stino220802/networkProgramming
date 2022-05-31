@@ -16,13 +16,15 @@ class honeynetServer {
 public:
     [[noreturn]] void sub();
 
-    void sendRecentSubs();
+   
 
     std::map<std::string, int> readFileToMap();
 
     void writeMapToFile(std::map<std::string, int> map1);
 
     void spammerInstance(std::string basicString);
+    
+    void sendCommand(std::string basicString);
 };
 
 
