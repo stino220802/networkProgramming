@@ -44,4 +44,7 @@ This application is made for bullying other people on a network.
 - install pyzmq and pysimplegui
 
 
-    
+## functionality
+
+### python client
+
