@@ -47,4 +47,4 @@ This application is made for bullying other people on a network.
 ## functionality
 ![](pythonGUI.PNG)
 ### python client
-
+If you fill in the textfield with a string on which someone is runnig a service it starts spamming them for 1 minute 
