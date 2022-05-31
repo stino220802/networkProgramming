@@ -47,4 +47,4 @@ This application is made for bullying other people on a network.
 ## functionality
 ![](pythonGUI.PNG)
 ### python client
-If you fill in the textfield with a string on which someone is runnig a service and click the spam button it starts spamming them for 1 minute. The exit button exits the program. The request recent subs displays a list of people who have recently subbed to a server. 
+If you fill in the textfield with a string on which someone is runnig a service and click the spam button it starts spamming them for 1 minute. The exit button exits the program. 
