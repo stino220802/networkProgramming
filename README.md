@@ -42,11 +42,12 @@ This application is made for bullying other people on a network.
 - In pycharm go to File->setting->project->python interpreter
 - click on the plus icon 
 - install pyzmq and pysimplegui
-
+### reverse shell 
+reverse shell is the same as server.
 
 ## functionality
 ![](yedSchematic.PNG)
 
 ![](pythonGUI2.PNG)
 ### python client
-If you fill in the textfield with a string on which someone is runnig a service and click the spam button it starts spamming them for 1 minute. The exit button exits the program. 
+If you fill in the textfield with a string on which someone is runnig a service and click the spam button it starts spamming them for x amount of time.If you fill in the textfield with a cmd command it will execute on people's pc who have the shell running. The exit button exits the program. 
