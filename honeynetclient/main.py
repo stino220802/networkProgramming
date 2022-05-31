@@ -52,11 +52,5 @@ pusher.connect("tcp://benternet.pxl-ea-ict.be:24041")
 subber = context.socket(zmq.SUB)
 subber.connect("tcp://benternet.pxl-ea-ict.be:24042")
 """
-#  Do 10 requests, waiting each time for a response
-##for request in range(1000000):
-  ##  print("Sending request %s …" % request)
-   ## pusher.send(str.encode("ToonSpecialService>CooleLiefdesMeter?>Names>K70K30YE>toon>>ivaana>>stijn"))
-   ## message = subber.recv()
-   ## print("werkt")
-   ## print("%s" % (message))
+
 
